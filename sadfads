@@ -1,0 +1,25 @@
+ const postData = new employeeRegister({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            password: req.body.password,
+            cPassword: req.body.cPassword,
+            mobile: req.body.mobile,
+            age: req.body.age
+        })
+        const saveData = await postData.save();
+        res.status(201).send(saveData);
+
+<-------------Explore Bcrypt---------->
+
+const bcrypt = require('bcryptjs');
+
+
+const securePassword = async (password) => {
+    const hashPassword = await bcrypt.hash(password, 10);
+    console.log(hashPassword)
+    const matchPassword = await bcrypt.compare("sohan12345", hashPassword);
+    console.log(matchPassword)
+}
+securePassword("sohan12345")
+
