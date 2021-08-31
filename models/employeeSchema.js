@@ -58,9 +58,5 @@ employeeSchema.pre("save", async function (next) {
     next();
 })
 
-
-
-
 const employeeRegister = new mongoose.model("EmployeeRegistration", employeeSchema)
-
 module.exports = employeeRegister;
